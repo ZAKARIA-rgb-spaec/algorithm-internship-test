@@ -14,15 +14,13 @@ Ce repository contient la solution du test de stage pour développer un prototyp
    ```bash
    git clone https://github.com/votre-nom/algorithm-internship-test.git
    cd algorithm-internship-test
-2.	Installer les dépendances (par exemple, la bibliothèque gpxpy) :
-bash
-Copier
+## Installation
+
+Installez les dépendances nécessaires (par exemple, la bibliothèque `gpxpy`) :
+
+```bash
 pip install gpxpy
-Utilisation
-Pour tester le prototype, exécutez la commande suivante en indiquant le fichier GPX d'exemple :
-bash
-Copier
-python script.py sample_course.gpx
-Le script affichera la distance totale, le temps total et le pace moyen corrigé.
+
+
 
 
