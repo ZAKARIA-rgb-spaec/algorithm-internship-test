@@ -31,7 +31,31 @@ La relation linéaire entre la montée (ou descente) et le pace facilite la comp
 Les données extraites d’un fichier GPX (latitude, longitude, altitude et timestamp) suffisent pour appliquer cette correction. On n’a pas besoin d’informations supplémentaires complexes pour mettre en œuvre ce modèle.
 
 
-## 4. Description du Prototype
+
+## 4. Raisons du Rejet des Autres Méthodes
+4.1. Méthode GAP de Strava
+•	Complexité et accessibilité
+Bien que la méthode GAP de Strava soit intéressante, elle repose sur une ingénierie inverse sur des algorithmes propriétaires dont le fonctionnement exact n'est pas entièrement documenté.
+•	Données internes non disponibles
+Strava dispose de nombreux paramètres et d’historiques de performances qui permettent d’ajuster le modèle. Dans un contexte de prototype simple, ces informations ne sont pas accessibles, ce qui rend difficile la reproduction fidèle de la méthode.
+4.2. Daniels’ Running Formula et VDOT Tables
+•	Dépendance aux paramètres individuels
+La formule de Daniels et les tableaux VDOT intègrent des valeurs spécifiques liées à la physiologie de chaque coureur (VO₂ max, seuil lactique, etc.).
+•	Adaptabilité limitée aux données disponibles
+Or, dans notre cas, nous disposons uniquement des données GPS d’un parcours, sans paramètres individuels détaillés. Intégrer cette approche nécessiterait des mesures supplémentaires et complexifierait le prototype.
+4.3. Modèles d’Élévation (ex. Minetti 2002)
+•	Modélisation scientifique plus poussée
+Les modèles tels que celui de Minetti sont scientifiquement robustes et intègrent des mécanismes énergétiques complexes pour corriger l’impact du dénivelé.
+•	Complexité et surqualité pour un prototype
+Leur implémentation requiert souvent une calibration précise et des données très détaillées sur la physiologie de l’effort, ce qui dépasse le cadre d’un prototype visant principalement à démontrer la faisabilité d’une correction à partir d’un fichier GPX.
+4.4. Modèles basés sur le Machine Learning ou des Approches Physiques Avancées
+•	Nécessité d’un grand volume de données
+Les méthodes basées sur le machine learning nécessitent un jeu de données conséquent pour entraîner le modèle. En l'absence de telles données (et dans le cadre d'un test court), leur utilisation n’est pas pertinente.
+•	Complexité computationnelle et de calibration
+Ces approches demandent également une infrastructure de modélisation et de validation beaucoup plus développée, ce qui est disproportionné par rapport aux besoins d’un prototype visant à illustrer une correction simple
+
+
+## 5. Description du Prototype
 
 Le script Python réalise les opérations suivantes :
 1. **Lecture du fichier GPX** pour extraire les points GPS (latitude, longitude, altitude, temps).
@@ -40,7 +64,7 @@ Le script Python réalise les opérations suivantes :
 4. **Calcul du pace** (temps en minutes par kilomètre) pour chaque segment.
 5. **Application de la correction** en utilisant la formule définie.
 
-## 5. Perspectives d'Amélioration
+## 6. Perspectives d'Amélioration
 
 - Intégrer des paramètres environnementaux (température, humidité).
 - Adapter la correction en fonction des caractéristiques individuelles (VO2 max, seuil lactique, etc.).
