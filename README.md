@@ -14,7 +14,7 @@ Ce repository contient la solution du test de stage pour développer un prototyp
    ```bash
    git clone https://github.com/votre-nom/algorithm-internship-test.git
    cd algorithm-internship-test
-2.	Installer les dépendances (par exemple, la bibliothèque gpxpy) :\\
+2.	Installer les dépendances (par exemple, la bibliothèque gpxpy) :
 bash
 Copier
 pip install gpxpy
