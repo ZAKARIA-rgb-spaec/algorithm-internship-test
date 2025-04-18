@@ -1,67 +1,67 @@
-# 📚 Documentation du Projet - Algorithm Internship Test
+# 📚 Project Documentation - Algorithm Internship Test
 
-## 🔎 1. Revue de la Littérature et Approches
+## 🔎 1. Literature Review and Approaches
+Several approaches were studied to adjust running time based on elevation:
 
-Plusieurs approches ont été étudiées pour ajuster le temps de course en fonction du dénivelé :
+- **Strava GAP Method**: Adjustment based on a reverse-engineered approach.
+- **Daniels’ Running Formula**: Use of VDOT tables to assess effort.
+- **Effort Science-Based Models**: Example, Minetti (2002) studies the energy cost of slopes.
+- **Machine Learning Approaches**: Statistical models considering several parameters.
 
-- **Méthode GAP de Strava** : Ajustement basé sur une approche reverse-engineered.
-- **Daniels’ Running Formula** : Utilisation des VDOT tables pour évaluer l'effort.
-- **Modèles basés sur la science de l'effort** : Exemple, Minetti (2002) qui étudie le coût énergétique des pentes.
-- **Approches par machine learning** : Modèles statistiques prenant en compte plusieurs paramètres.
+## 🛠️ 2. Method Selection
+For this prototype, we selected a simple method based on a correction factor proportional to the slope grade (ascent/descent).
 
-## 🛠️ 2. Sélection de la Méthode
-
-Pour ce prototype, nous avons sélectionné une méthode simple basée sur un facteur de correction proportionnel au grade de la montée/descente.
-
-La formule appliquée est :
+The applied formula is:
 
 ```python
 corrected_pace = actual_pace * (1 + k * grade)
+
 ```
-où `k` est un coefficient empirique (ici fixé à 0,03).
+where k is an empirical coefficient (set here to 0.03).
 
-Cette approche présente l'avantage d'être simple à implémenter et facilement testable avec des données GPS.
+This approach has the advantage of being simple to implement and easily testable with GPS data
 
 
-## 3. Pourquoi ce choix ?
+## 3. Why This Choice?
 
-### 🔹 Simplicité d’implémentation
-Cette méthode demande un calcul simple (multiplication et addition) qui permet de transformer directement le rythme réel à partir d’un facteur de correction. Elle est aisée à coder et à valider rapidement dans un environnement de test.
+### 🔹 Simplicity of Implementation
+This method requires simple calculations (multiplication and addition) that directly transform the real pace based on a correction factor. It is easy to code and quickly validate in a testing environment.
 
-### 🔹 Lisibilité et transparence
-La relation linéaire entre la montée (ou descente) et le **pace** facilite la compréhension de l’impact de chaque variation de dénivelé sur la performance. Cela permet d’expliquer clairement le fonctionnement de l’algorithme à des collaborateurs ou des recruteurs.
+### 🔹 Readability and Transparency
+The linear relationship between ascent (or descent) and **pace** makes it easier to understand the impact of each change in elevation on performance. This allows for a clear explanation of how the algorithm works to colleagues or recruiters.
 
-### 🔹 Adaptabilité aux données disponibles
-Les données extraites d’un fichier **GPX** (latitude, longitude, altitude et timestamp) suffisent pour appliquer cette correction. On n’a pas besoin d’informations supplémentaires complexes pour mettre en œuvre ce modèle.
+### 🔹 Adaptability to Available Data
+The data extracted from a **GPX** file (latitude, longitude, altitude, and timestamp) are sufficient to apply this correction. No additional complex information is needed to implement this model.
 
-## 4. Raisons du Rejet des Autres Méthodes
+## 4. Reasons for Rejecting Other Methods
 
-### 4.1 Méthode GAP de Strava
-- **Complexité et accessibilité** : Bien que la méthode GAP de Strava soit intéressante, elle repose sur une ingénierie inverse sur des algorithmes propriétaires dont le fonctionnement exact n'est pas entièrement documenté.
-- **Données internes non disponibles** : Strava dispose de nombreux paramètres et d’historiques de performances qui permettent d’ajuster le modèle. Dans un contexte de prototype simple, ces informations ne sont pas accessibles, ce qui rend difficile la reproduction fidèle de la méthode.
+### 4.1 Strava GAP Method
+- **Complexity and Accessibility**: While the Strava GAP method is interesting, it relies on reverse engineering proprietary algorithms whose exact workings are not fully documented.
+- **Unavailable Internal Data**: Strava has numerous parameters and performance histories that allow for model adjustments. In the context of a simple prototype, this information is not available, making it difficult to replicate the method accurately.
 
-### 4.2 Daniels’ Running Formula et VDOT Tables
-- **Dépendance aux paramètres individuels** : La formule de Daniels et les tableaux VDOT intègrent des valeurs spécifiques liées à la physiologie de chaque coureur (VO₂ max, seuil lactique, etc.).
-- **Adaptabilité limitée aux données disponibles** : Or, dans notre cas, nous disposons uniquement des données **GPS** d’un parcours, sans paramètres individuels détaillés. Intégrer cette approche nécessiterait des mesures supplémentaires et complexifierait le prototype.
+### 4.2 Daniels’ Running Formula and VDOT Tables
+- **Dependence on Individual Parameters**: The Daniels formula and VDOT tables incorporate specific values related to the physiology of each runner (VO₂ max, lactate threshold, etc.).
+- **Limited Adaptability to Available Data**: In our case, we only have **GPS** data from a route, without detailed individual parameters. Integrating this approach would require additional measurements and would complicate the prototype.
 
-### 4.3 Modèles d’Élévation (ex. Minetti 2002)
-- **Modélisation scientifique plus poussée** : Les modèles tels que celui de Minetti sont scientifiquement robustes et intègrent des mécanismes énergétiques complexes pour corriger l’impact du dénivelé.
-- **Complexité et surqualité pour un prototype** : Leur implémentation requiert souvent une calibration précise et des données très détaillées sur la physiologie de l’effort, ce qui dépasse le cadre d’un prototype visant principalement à démontrer la faisabilité d’une correction à partir d’un fichier GPX.
+### 4.3 Elevation Models (e.g., Minetti 2002)
+- **More Advanced Scientific Modeling**: Models like the one by Minetti are scientifically robust and integrate complex energy mechanisms to correct for the impact of elevation.
+- **Complexity and Overkill for a Prototype**: Their implementation often requires precise calibration and detailed data on the physiology of effort, which goes beyond the scope of a prototype aimed mainly at demonstrating the feasibility of a correction from a GPX file.
 
-### 4.4 Modèles basés sur le Machine Learning ou des Approches Physiques Avancées
-- **Nécessité d’un grand volume de données** : Les méthodes basées sur le machine learning nécessitent un jeu de données conséquent pour entraîner le modèle. En l'absence de telles données (et dans le cadre d'un test court), leur utilisation n’est pas pertinente.
-- **Complexité computationnelle et de calibration** : Ces approches demandent également une infrastructure de modélisation et de validation beaucoup plus développée, ce qui est disproportionné par rapport aux besoins d’un prototype visant à illustrer une correction simple.
+### 4.4 Machine Learning or Advanced Physical Approach Models
+- **Need for Large Data Sets**: Machine learning-based methods require a large dataset to train the model. Without such data (and within the scope of a short test), their use is not relevant.
+- **Computational and Calibration Complexity**: These approaches also require a more developed modeling and validation infrastructure, which is disproportionate to the needs of a prototype aimed at illustrating a simple correction.
 
-## 5. Description du Prototype
-Le script Python réalise les opérations suivantes :
-- Lecture du fichier **GPX** pour extraire les points GPS (latitude, longitude, altitude, temps).
-- Calcul de la **distance parcourue** entre chaque point en utilisant la formule **haversine**.
-- Calcul du **grade** (dénivelé relatif) pour chaque segment.
-- Calcul du **pace** (temps en minutes par kilomètre) pour chaque segment.
-- Application de la correction en utilisant la formule définie.
+## 5. Prototype Description
+The Python script performs the following operations:
+- Reads the **GPX** file to extract GPS points (latitude, longitude, altitude, time).
+- Calculates the **distance traveled** between each point using the **haversine** formula.
+- Calculates the **grade** (relative elevation) for each segment.
+- Calculates the **pace** (time in minutes per kilometer) for each segment.
+- Applies the correction using the defined formula.
 
-## 6. Perspectives d'Amélioration
-- 🌡️ **Intégrer des paramètres environnementaux** (température, humidité).
-- 🏃‍♂️ **Adapter la correction** en fonction des caractéristiques individuelles (**VO₂ max**, seuil lactique, etc.).
-- 🗺️ **Tester et valider l'algorithme** sur d'autres parcours et avec des données réelles.
+## 6. Improvement Perspectives
+- 🌡️ **Integrate environmental parameters** (temperature, humidity).
+- 🏃‍♂️ **Adapt the correction** based on individual characteristics (**VO₂ max**, lactate threshold, etc.).
+- 🗺️ **Test and validate the algorithm** on other routes and with real data.
+
 
