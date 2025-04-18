@@ -12,7 +12,7 @@ Ce repository contient la solution du test de stage pour développer un prototyp
 
 1. Cloner le repository :
    ```bash
-   git clone https://github.com/votre-nom/algorithm-internship-test.git
+   git clone https://github.com/ZAKARIA-rgb-spaec/algorithm-internship-test.git
    cd algorithm-internship-test
 ## Installation
 
@@ -20,6 +20,10 @@ Installez les dépendances nécessaires (par exemple, la bibliothèque `gpxpy`) 
 
 ```bash
 pip install gpxpy
+Exécutez le script avec le fichier GPX d'exemple :
+python script.py sample_course.gpx
+Le script affichera la distance totale, le temps total et le pace moyen corrigé.
+
 
 
 
