@@ -22,7 +22,16 @@ où `k` est un coefficient empirique (ici fixé à 0,03).
 
 Cette approche présente l'avantage d'être simple à implémenter et facilement testable avec des données GPS.
 
-## 3. Description du Prototype
+## 3.Pourquoi ce choix ?
+•	Simplicité d’implémentation
+Cette méthode demande un calcul simple (multiplication et addition) qui permet de transformer directement le rythme réel à partir d’un facteur de correction. Elle est aisée à coder et à valider rapidement dans un environnement de test.
+•	Lisibilité et transparence
+La relation linéaire entre la montée (ou descente) et le pace facilite la compréhension de l’impact de chaque variation de dénivelé sur la performance. Cela permet d’expliquer clairement le fonctionnement de l’algorithme à des collaborateurs ou des recruteurs.
+•	Adaptabilité aux données disponibles
+Les données extraites d’un fichier GPX (latitude, longitude, altitude et timestamp) suffisent pour appliquer cette correction. On n’a pas besoin d’informations supplémentaires complexes pour mettre en œuvre ce modèle.
+
+
+## 4. Description du Prototype
 
 Le script Python réalise les opérations suivantes :
 1. **Lecture du fichier GPX** pour extraire les points GPS (latitude, longitude, altitude, temps).
@@ -31,7 +40,7 @@ Le script Python réalise les opérations suivantes :
 4. **Calcul du pace** (temps en minutes par kilomètre) pour chaque segment.
 5. **Application de la correction** en utilisant la formule définie.
 
-## 4. Perspectives d'Amélioration
+## 5. Perspectives d'Amélioration
 
 - Intégrer des paramètres environnementaux (température, humidité).
 - Adapter la correction en fonction des caractéristiques individuelles (VO2 max, seuil lactique, etc.).
