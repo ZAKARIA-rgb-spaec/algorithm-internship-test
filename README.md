@@ -24,8 +24,5 @@ bash
 Copier
 python script.py sample_course.gpx
 Le script affichera la distance totale, le temps total et le pace moyen corrigé.
-Perspectives d'Amélioration
-•	Intégrer des données environnementales (température, humidité).
-•	Adapter l'algorithme aux paramètres individuels (VO2 max, seuil lactique, etc.).
-•	Explorer des méthodes avancées (machine learning, modélisation physique plus fine).
+
 
