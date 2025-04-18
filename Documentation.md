@@ -17,6 +17,7 @@ La formule appliquée est :
 
 ```python
 corrected_pace = actual_pace * (1 + k * grade)
+```
 
 ## 3. Pourquoi ce choix ?
 
