@@ -1,5 +1,4 @@
 
-```markdown
 # Documentation du Projet - Algorithm Internship Test
 
 ## 1. Revue de la Littérature et Approches
