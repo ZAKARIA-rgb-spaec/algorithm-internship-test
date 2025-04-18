@@ -1,29 +1,26 @@
-# Algorithm Internship Test - GAP Time Correction
+# 🧠 Algorithm Internship Test – GAP Time Correction
 
-Ce repository contient la solution du test de stage pour développer un prototype d'algorithme GAP (Grade Adjusted Pace) qui ajuste le temps de course en fonction du dénivelé.
+Ce repository présente une solution pour un **test de stage en algorithmique**, visant à développer un prototype de l’algorithme **GAP (Grade Adjusted Pace)**. Cet algorithme ajuste le temps de course en fonction du **dénivelé** rencontré lors d’un parcours.
 
-## Contenu du Repository
+---
 
-- **Documentation.md** : Document expliquant la revue de littérature, le choix méthodologique, et les pistes d'amélioration.
-- **script.py** : Script Python qui lit un fichier GPX, calcule la distance et le dénivelé, puis corrige le pace.
-- **sample_course.gpx** : Fichier GPX d'exemple représentant un parcours 10K.
+## 📁 Contenu du Repository
 
-## Installation
+| Fichier                 | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `script.py`            | Script Python principal : lit un fichier GPX, calcule distance/dénivelé, et corrige le pace. |
+| `sample_course.gpx`    | Fichier GPX d'exemple représentant un parcours de 10 km.                    |
+| `Documentation.md`     | Revue de littérature, choix méthodologiques, et suggestions d’amélioration. |
 
-1. Cloner le repository :
-   ```bash
-   git clone https://github.com/ZAKARIA-rgb-spaec/algorithm-internship-test.git
-   cd algorithm-internship-test
-## Installation
+---
 
-Installez les dépendances nécessaires (par exemple, la bibliothèque `gpxpy`) :
+## ⚙️ Installation
+
+### 1. Cloner le repository
 
 ```bash
-pip install gpxpy
-Exécutez le script avec le fichier GPX d'exemple :
-python script.py sample_course.gpx
-Le script affichera la distance totale, le temps total et le pace moyen corrigé.
-
+git clone https://github.com/ZAKARIA-rgb-spaec/algorithm-internship-test.git
+cd algorithm-internship-test
 
 
 
