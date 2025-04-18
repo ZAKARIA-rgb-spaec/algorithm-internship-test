@@ -18,6 +18,10 @@ La formule appliquée est :
 ```python
 corrected_pace = actual_pace * (1 + k * grade)
 ```
+où `k` est un coefficient empirique (ici fixé à 0,03).
+
+Cette approche présente l'avantage d'être simple à implémenter et facilement testable avec des données GPS.
+
 
 ## 3. Pourquoi ce choix ?
 
