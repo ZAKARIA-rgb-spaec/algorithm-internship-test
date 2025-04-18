@@ -1,16 +1,16 @@
 # 🧠 Algorithm Internship Test – GAP Time Correction
 
-Ce repository présente une solution pour un **test de stage en algorithmique**, visant à développer un prototype de l’algorithme **GAP (Grade Adjusted Pace)**. Cet algorithme ajuste le temps de course en fonction du **dénivelé** rencontré lors d’un parcours.
+This repository presents a solution for an **algorithm internship test**, aimed at developing a prototype of the **GAP (Grade Adjusted Pace)** algorithm. This algorithm adjusts the running pace based on the **elevation gain** encountered during a course.
 
 ---
 
-## 📁 Contenu du Repository
+## 📁 Repository Contents
 
-| Fichier                 | Description                                                                 |
+| File                   | Description                                                                 |
 |------------------------|-----------------------------------------------------------------------------|
-| `script.py`            | Script Python principal : lit un fichier GPX, calcule distance/dénivelé, et corrige le pace. |
-| `sample_course.gpx`    | Fichier GPX d'exemple représentant un parcours de 10 km.                    |
-| `Documentation.md`     | Revue de littérature, choix méthodologiques, et suggestions d’amélioration. |
+| `script.py`            | Main Python script: reads a GPX file, calculates distance/elevation gain, and adjusts the pace. |
+| `sample_course.gpx`    | Example GPX file representing a 10 km course.                              |
+| `Documentation.md`     | Literature review, methodological choices, and improvement suggestions.     |
 
 ---
 
