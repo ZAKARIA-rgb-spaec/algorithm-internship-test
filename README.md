@@ -18,9 +18,12 @@ Ce repository présente une solution pour un **test de stage en algorithmique**,
 
 ### 1. Cloner le repository
 
+Pour récupérer le repository, exécutez la commande suivante dans votre terminal :
+
 ```bash
 git clone https://github.com/ZAKARIA-rgb-spaec/algorithm-internship-test.git
 cd algorithm-internship-test
+
 
 
 
