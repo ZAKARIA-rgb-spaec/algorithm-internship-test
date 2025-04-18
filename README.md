@@ -23,8 +23,7 @@ Pour récupérer le repository, exécutez la commande suivante dans votre termin
 ```bash
 git clone https://github.com/ZAKARIA-rgb-spaec/algorithm-internship-test.git
 cd algorithm-internship-test
-🔍 **Exemple de sortie**  
-Voici un exemple de sortie que vous obtiendrez après avoir exécuté le script avec un fichier GPX :
+
 
 
 
