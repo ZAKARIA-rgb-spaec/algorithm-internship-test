@@ -9,7 +9,7 @@ This repository presents a solution for an **algorithm internship test**, aimed 
 | File                   | Description                                                                 |
 |------------------------|-----------------------------------------------------------------------------|
 | `script.py`            | Main Python script: reads a GPX file, calculates distance/elevation gain, and adjusts the pace. |
-| `sample_course.gpx`    | Example GPX file representing a 10 km course.                              |
+| `sample_course.gpx`/`sample_course.xml`     | Example GPX file representing a 10 km course.                              |
 | `Documentation.md`     | Literature review, methodological choices, and improvement suggestions.     |
 
 ---
