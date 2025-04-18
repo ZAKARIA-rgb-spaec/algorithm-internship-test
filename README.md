@@ -24,7 +24,7 @@ Pour récupérer le repository, exécutez la commande suivante dans votre termin
 git clone https://github.com/ZAKARIA-rgb-spaec/algorithm-internship-test.git
 cd algorithm-internship-test
 
-##🚀 Utilisation
+## 🚀 Utilisation
 Une fois l'installation effectuée, vous pouvez exécuter le script en ligne de commande avec un fichier .gpx comme suit :
 
 bash
